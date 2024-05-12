@@ -1,0 +1,140 @@
+name: CI
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+
+# Needed for nx-set-shas when run on the main branch
+permissions:
+  actions: read
+  contents: read
+  pull-requests: write # for comments
+
+env:
+  VERSIONS: ''
+
+jobs:
+  ci:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        shell: bash
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Git Identity
+        run: |
+          git config --global user.name "${{ github.actor }}"
+          git config --global user.email  "${{ github.actor }}@users.noreply.github.com"
+
+      - name: Install pnpm
+        uses: pnpm/action-setup@v3
+        with:
+          version: 8.15.8
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: 'pnpm'
+
+      - name: Restore cached npm dependencies
+        uses: actions/cache/restore@v3
+        with:
+          path: |
+            node_modules
+            ~/.cache/Cypress # needed for the Cypress binary
+          key: npm-dependencies-${{ hashFiles('pnpm-lock.yaml') }}
+
+      - name: Install dependencies
+        run: pnpm install
+
+      - name: Cache npm dependencies
+        uses: actions/cache/save@v3
+        with:
+          path: |
+            node_modules
+            ~/.cache/Cypress # needed for the Cypress binary
+          key: npm-dependencies-${{ hashFiles('pnpm-lock.yaml') }}
+
+      # This line enables distribution
+      # The "--stop-agents-after" is optional, but allows idle agents to shut down once the "e2e-ci" targets have been requested
+      # - run: npx nx-cloud start-ci-run --distribute-on="5 linux-medium-js" --stop-agents-after="e2e-ci"
+      - name: Setup SHAs
+        uses: nrwl/nx-set-shas@v4
+
+      # This line is needed for nx affected to work when CI is running on a PR
+      - run: git branch --track main origin/main
+        if: ${{ github.event_name == 'pull_request' }}
+
+      - name: Nx report
+        run: pnpm exec nx report
+
+      - name: Nx format
+        run: pnpm exec nx format:check
+
+      - name: Lint
+        run: pnpm exec nx affected -t lint
+
+      - name: Test
+        run: pnpm exec nx affected -t test
+
+      - name: Build
+        run: pnpm exec nx affected -t build
+
+      - name: E2E
+        run: pnpm exec nx affected -t e2e-ci
+
+      - name: Determinate versions
+        id: versions
+        if: github.event_name == 'pull_request'
+        run: |
+          {
+            echo 'VERSIONS<<EOF'
+            pnpm exec nx release version --dry-run
+            echo EOF
+          } >> "$GITHUB_ENV"
+
+      - name: 'Report changes to Pull request'
+        uses: actions/github-script@v6
+        if: github.event_name == 'pull_request'
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          script: |
+            // 1. Retrieve existing bot comments for the PR
+            const { data: comments } = await github.rest.issues.listComments({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: context.issue.number,
+            })
+            const botComment = comments.find(comment => {
+              return comment.user.type === 'Bot' && comment.body.includes('Versions')
+            })
+
+            // 2. Prepare format of the comment
+            const output = `#### Versions 📖
+            \`\`\`\n
+             ${{ env.VERSIONS }}
+            \`\`\`
+
+            *Pusher: @${{ github.actor }}, Action: \`${{ github.event_name }}\`, Workflow: \`${{ github.workflow }}\`*`;
+
+            // 3. If we have a comment, update it, otherwise create a new one
+            if (botComment) {
+              github.rest.issues.updateComment({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                comment_id: botComment.id,
+                body: output
+              })
+            } else {
+              github.rest.issues.createComment({
+                issue_number: context.issue.number,
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                body: output
+              })
+            }

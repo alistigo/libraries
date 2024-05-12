@@ -14,6 +14,20 @@
         "tsConfig": "packages/react-required-contexts/tsconfig.lib.json",
         "assets": ["packages/react-required-contexts/*.md"]
       }
+    },
+    "lint": {
+      "executor": "@nx/eslint:lint",
+      "options": {
+        "lintFilePatterns": ["packages/react-required-contexts/src/**/*.ts"],
+        "quiet": true
+      }
+    },
+    "test": {
+      "executor": "@nx/jest:jest",
+      "options": {
+        "jestConfig": "packages/react-required-contexts/jest.config.ts",
+        "passWithNoTests": true
+      }
     }
   }
 }
