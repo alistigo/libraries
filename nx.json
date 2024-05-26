@@ -1,7 +1,6 @@
 {
   "$schema": "./node_modules/nx/schemas/nx-schema.json",
   "defaultBase": "main",
-  "nxCloudAccessToken": "ZjkxMDk1NmYtMjc4NC00NTdmLTk1YTgtNGI2ODAxZjVjZDIzfHJlYWQtd3JpdGU=",
   "targetDefaults": {
     "@nx/js:tsc": {
       "cache": true,
@@ -39,9 +38,16 @@
       "{projectRoot}/**/*",
       "sharedGlobals"
     ],
-    "sharedGlobals": [],
+    "sharedGlobals": [
+      "{workspaceRoot}/.github/workflows/ci.yml"
+    ],
     "production": [
       "default"
     ]
+  },
+  "release": {
+    "version": {
+      "conventionalCommits": true
+    }
   }
 }

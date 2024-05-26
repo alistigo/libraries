@@ -1,0 +1,46 @@
+name: CI
+on:
+  pull_request:
+    types: [closed]
+    branches:
+      - master
+  workflow_dispatch:
+
+# Needed for nx-set-shas when run on the main branch
+permissions:
+  actions: read
+  contents: write # for checkout and tag
+  pull-requests: write  # for comments
+  packages: write # for publish
+
+jobs:
+  main:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Git Identity
+        run: |
+          git config --global user.name "${{ github.actor }}"
+          git config --global user.email  "${{ github.actor }}@users.noreply.github.com"
+
+      - name: Install pnpm
+        uses: pnpm/action-setup@v3
+        with:
+          version: 8.15.8
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: 'pnpm'
+
+      - name: Install dependencies
+        run: pnpm install
+        shell: bash
+
+      - name: Release packages
+        run: pnpm exec nx release --skip-publish
+        shell: bash
