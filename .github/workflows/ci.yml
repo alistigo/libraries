@@ -89,7 +89,8 @@ jobs:
 
       - name: Determinate versions
         id: versions
-        run: pnpm exec nx release version --dry-run
+        run: |
+          VERSION=$(pnpm exec nx release version --dry-run)
 
       - name: 'Report changes to Pull request'
         uses: actions/github-script@v6
@@ -110,7 +111,7 @@ jobs:
             // 2. Prepare format of the comment
             const output = `#### Versions 📖
             \`\`\`\n
-            ${{ steps.versions.outputs.stdout }}
+            ${{ $VERSION }}
             \`\`\`
 
             *Pusher: @${{ github.actor }}, Action: \`${{ github.event_name }}\`, Workflow: \`${{ github.workflow }}\`*`;
