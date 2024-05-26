@@ -92,7 +92,12 @@ jobs:
 
       - name: Determinate versions
         id: versions
-        run: echo "VERSIONS=$(pnpm exec nx release version --dry-run)" >> $GITHUB_ENV
+        run: |
+          {
+            echo 'VERSIONS<<EOF'
+            pnpm exec nx release version --dry-run
+            echo EOF
+          } >> "$GITHUB_ENV"
 
       - name: 'Report changes to Pull request'
         uses: actions/github-script@v6
