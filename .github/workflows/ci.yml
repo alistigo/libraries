@@ -89,7 +89,7 @@ jobs:
 
       - name: Determinate releases
         id: releases
-        run: pnpm exec nx release version --dry-run
+        run: pnpm exec nx release version --dry-run -no-color
 
       - name: 'Report changes to Pull request'
         uses: actions/github-script@v6
