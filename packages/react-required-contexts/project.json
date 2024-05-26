@@ -7,24 +7,18 @@
   "targets": {
     "build": {
       "executor": "@nx/js:tsc",
-      "outputs": [
-        "{options.outputPath}"
-      ],
+      "outputs": ["{options.outputPath}"],
       "options": {
         "outputPath": "dist/packages/react-required-contexts",
         "main": "packages/react-required-contexts/src/index.ts",
         "tsConfig": "packages/react-required-contexts/tsconfig.lib.json",
-        "assets": [
-          "packages/react-required-contexts/*.md"
-        ]
+        "assets": ["packages/react-required-contexts/*.md"]
       }
     },
     "lint": {
       "executor": "@nx/eslint:lint",
       "options": {
-        "lintFilePatterns": [
-          "packages/react-required-contexts/src/**/*.ts"
-        ],
+        "lintFilePatterns": ["packages/react-required-contexts/src/**/*.ts"],
         "quiet": true
       }
     },
