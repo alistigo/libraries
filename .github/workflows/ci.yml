@@ -20,6 +20,11 @@ jobs:
         with:
           fetch-depth: 0
 
+      - name: Git Identity
+        run: |
+          git config --global user.name "${{ github.actor }}"
+          git config --global user.email  "${{ github.actor }}@users.noreply.github.com"
+
       - name: Install pnpm
         uses: pnpm/action-setup@v3
         with:
@@ -56,13 +61,12 @@ jobs:
       - name: Setup SHAs
         uses: nrwl/nx-set-shas@v4
 
-      - run: |
-          echo "BASE: ${{ env.NX_BASE }}"
-          echo "HEAD: ${{ env.NX_HEAD }}"
-
       # This line is needed for nx affected to work when CI is running on a PR
       - run: git branch --track main origin/main
         if: ${{ github.event_name == 'pull_request' }}
+
+      - name: Nx report
+        run: pnpm exec nx report
 
       - name: Nx format
         run: pnpm exec nx format:check
@@ -78,3 +82,48 @@ jobs:
 
       - name: E2E
         run: pnpm exec nx affected -t e2e-ci
+
+      - name: Determinate releases
+        id: releases
+        run: pnpm exec nx release --dry-run
+
+      - name: 'Report changes to Pull request'
+        uses: actions/github-script@v6
+        if: github.event_name == 'pull_request'
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          script: |
+            // 1. Retrieve existing bot comments for the PR
+            const { data: comments } = await github.rest.issues.listComments({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: context.issue.number,
+            })
+            const botComment = comments.find(comment => {
+              return comment.user.type === 'Bot' && comment.body.includes('Terraform Format and Style')
+            })
+
+            // 2. Prepare format of the comment
+            const output = `#### Releases 📖
+            \`\`\`\n
+            ${steps.releases.outcome}
+            \`\`\`
+
+            *Pusher: @${{ github.actor }}, Action: \`${{ github.event_name }}\`, Workflow: \`${{ github.workflow }}\`*`;
+
+            // 3. If we have a comment, update it, otherwise create a new one
+            if (botComment) {
+              github.rest.issues.updateComment({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                comment_id: botComment.id,
+                body: output
+              })
+            } else {
+              github.rest.issues.createComment({
+                issue_number: context.issue.number,
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                body: output
+              })
+            }
