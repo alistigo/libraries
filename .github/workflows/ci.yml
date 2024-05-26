@@ -15,6 +15,9 @@ permissions:
 jobs:
   ci:
     runs-on: ubuntu-latest
+    defaults:
+      run:
+        shell: bash
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
@@ -101,13 +104,13 @@ jobs:
               issue_number: context.issue.number,
             })
             const botComment = comments.find(comment => {
-              return comment.user.type === 'Bot' && comment.body.includes('Terraform Format and Style')
+              return comment.user.type === 'Bot' && comment.body.includes('Releases')
             })
 
             // 2. Prepare format of the comment
             const output = `#### Releases 📖
             \`\`\`\n
-            ${{ steps.releases.outcome }}
+            ${{ steps.releases.outputs.stdout }}
             \`\`\`
 
             *Pusher: @${{ github.actor }}, Action: \`${{ github.event_name }}\`, Workflow: \`${{ github.workflow }}\`*`;
