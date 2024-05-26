@@ -107,7 +107,7 @@ jobs:
             // 2. Prepare format of the comment
             const output = `#### Releases 📖
             \`\`\`\n
-            ${{ steps.releases.outputs.out }}
+            ${{ steps.releases.outputs.stdout }}
             \`\`\`
 
             *Pusher: @${{ github.actor }}, Action: \`${{ github.event_name }}\`, Workflow: \`${{ github.workflow }}\`*`;
