@@ -87,9 +87,9 @@ jobs:
       - name: E2E
         run: pnpm exec nx affected -t e2e-ci
 
-      - name: Determinate releases
-        id: releases
-        run: pnpm exec nx release version --dry-run -no-color
+      - name: Determinate versions
+        id: versions
+        run: pnpm exec nx release version --dry-run
 
       - name: 'Report changes to Pull request'
         uses: actions/github-script@v6
@@ -104,13 +104,13 @@ jobs:
               issue_number: context.issue.number,
             })
             const botComment = comments.find(comment => {
-              return comment.user.type === 'Bot' && comment.body.includes('Releases')
+              return comment.user.type === 'Bot' && comment.body.includes('Versions')
             })
 
             // 2. Prepare format of the comment
-            const output = `#### Releases 📖
+            const output = `#### Versions 📖
             \`\`\`\n
-            ${{ steps.releases.outputs.stdout }}
+            ${{ steps.versions.outputs.stdout }}
             \`\`\`
 
             *Pusher: @${{ github.actor }}, Action: \`${{ github.event_name }}\`, Workflow: \`${{ github.workflow }}\`*`;
