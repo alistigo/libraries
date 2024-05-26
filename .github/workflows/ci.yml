@@ -10,6 +10,7 @@ on:
 permissions:
   actions: read
   contents: read
+  pull-requests: write # for comments
 
 jobs:
   ci:
@@ -85,7 +86,7 @@ jobs:
 
       - name: Determinate releases
         id: releases
-        run: echo "RELEASES=$(pnpm exec nx release version --dry-run)" >> "$GITHUB_OUTPUT"
+        run: pnpm exec nx release version --dry-run
 
       - name: 'Report changes to Pull request'
         uses: actions/github-script@v6
