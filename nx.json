@@ -50,6 +50,9 @@
     ]
   },
   "release": {
+    "changelog": {
+      "automaticFromRef": true
+    },
     "version": {
       "conventionalCommits": true,
       "generatorOptions": {
