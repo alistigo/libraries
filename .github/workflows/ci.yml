@@ -114,7 +114,7 @@ jobs:
             // 2. Prepare format of the comment
             const output = `#### Versions 📖
             \`\`\`\n
-             ${process.env.VERSIONS}
+             ${{ env.VERSIONS }}
             \`\`\`
 
             *Pusher: @${{ github.actor }}, Action: \`${{ github.event_name }}\`, Workflow: \`${{ github.workflow }}\`*`;
