@@ -68,10 +68,10 @@ jobs:
         run: pnpm exec nx build
 
       - name: Version packages
-        run: pnpm exec nx release version --yes
+        run: pnpm exec nx release version
 
       - name: Changelog packages
-        run: pnpm exec nx release changelog --yes
+        run: pnpm exec nx release changelog
 
       - name: Publish packages
         run: pnpm exec nx release publish --yes
