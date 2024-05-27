@@ -67,8 +67,14 @@ jobs:
       - name: Build
         run: pnpm exec nx build
 
-      - name: Release packages
-        run: pnpm exec nx release --yes
+      - name: Version packages
+        run: pnpm exec nx release version --yes
+
+      - name: Changelog packages
+        run: pnpm exec nx release changelog --yes
+
+      - name: Publish packages
+        run: pnpm exec nx release publish --yes
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_ACCESS_TOKEN }}
           NPM_CONFIG_PROVENANCE: true
