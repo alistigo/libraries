@@ -1,21 +1,24 @@
-name: CI
+name: Release and Publish
 on:
   pull_request:
     types: [closed]
     branches:
-      - master
+      - main
   workflow_dispatch:
 
 # Needed for nx-set-shas when run on the main branch
 permissions:
   actions: read
   contents: write # for checkout and tag
-  pull-requests: write # for comments
   packages: write # for publish
+  id-token: write # needed for provenance data generation
 
 jobs:
   main:
     runs-on: ubuntu-latest
+    defaults:
+      run:
+        shell: bash
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
@@ -37,10 +40,30 @@ jobs:
           node-version: 20
           cache: 'pnpm'
 
+      - name: Restore cached npm dependencies
+        uses: actions/cache/restore@v3
+        with:
+          path: |
+            node_modules
+            ~/.cache/Cypress # needed for the Cypress binary
+          key: npm-dependencies-${{ hashFiles('pnpm-lock.yaml') }}
+
       - name: Install dependencies
         run: pnpm install
-        shell: bash
+
+      - name: Cache npm dependencies
+        uses: actions/cache/save@v3
+        with:
+          path: |
+            node_modules
+            ~/.cache/Cypress # needed for the Cypress binary
+          key: npm-dependencies-${{ hashFiles('pnpm-lock.yaml') }}
+
+      - name: Nx report
+        run: pnpm exec nx report
 
       - name: Release packages
-        run: pnpm exec nx release --skip-publish
-        shell: bash
+        run: pnpm exec nx release
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_ACCESS_TOKEN }}
+          NPM_CONFIG_PROVENANCE: true

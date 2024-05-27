@@ -52,7 +52,6 @@ jobs:
 
       - name: Install dependencies
         run: pnpm install
-        shell: bash
 
       - name: Cache npm dependencies
         uses: actions/cache/save@v3
@@ -92,6 +91,7 @@ jobs:
 
       - name: Determinate versions
         id: versions
+        if: github.event_name == 'pull_request'
         run: |
           {
             echo 'VERSIONS<<EOF'
