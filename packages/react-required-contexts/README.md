@@ -1,7 +1,5 @@
 # react-required-contexts
 
-This library was generated with [Nx](https://nx.dev).
-
 ## Building
 
 Run `nx build react-required-contexts` to build the library.

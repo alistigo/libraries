@@ -64,6 +64,9 @@ jobs:
       - name: Nx report
         run: pnpm exec nx report
 
+      - name: Build
+        run: pnpm exec nx build
+
       - name: Release packages
         run: pnpm exec nx release --yes
         env:
