@@ -50,13 +50,26 @@
     ]
   },
   "release": {
+    "releaseTagPattern": "release/{version}",
     "changelog": {
-      "automaticFromRef": true
+      "automaticFromRef": true,
+      "git": {
+        "commit": true,
+        "tag": false,
+        "commitMessage": "chore(changelog): {version} [skip ci]"
+      }
     },
+    "projects": ["*", "!private"],
     "version": {
       "conventionalCommits": true,
       "generatorOptions": {
         "fallbackCurrentVersionResolver": "disk"
+      },
+      "workspaceChangelog": false,
+      "git": {
+        "commit": true,
+        "tag": true,
+        "commitMessage": "chore(release): {version} [skip ci]"
       }
     }
   }
