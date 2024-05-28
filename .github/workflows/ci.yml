@@ -86,7 +86,7 @@ jobs:
         run: |
           {
             echo 'VERSIONS<<EOF'
-            pnpm exec nx release version --dry-run
+            pnpm exec nx release --dry-run --skip-publish
             echo EOF
           } >> "$GITHUB_ENV"
 

@@ -51,13 +51,13 @@
   },
   "release": {
     "releaseTagPattern": "release/{version}",
+    "git": {
+      "commit": true,
+      "tag": true,
+      "commitMessage": "chore(release): {version} [skip ci]"
+    },
     "changelog": {
-      "automaticFromRef": true,
-      "git": {
-        "commit": true,
-        "tag": false,
-        "commitMessage": "chore(changelog): {version} [skip ci]"
-      }
+      "automaticFromRef": true
     },
     "projects": ["*", "!private"],
     "version": {
@@ -65,12 +65,7 @@
       "generatorOptions": {
         "fallbackCurrentVersionResolver": "disk"
       },
-      "workspaceChangelog": false,
-      "git": {
-        "commit": true,
-        "tag": true,
-        "commitMessage": "chore(release): {version} [skip ci]"
-      }
+      "workspaceChangelog": false
     }
   }
 }
