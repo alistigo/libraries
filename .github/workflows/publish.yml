@@ -3,7 +3,7 @@ name: Publish
 on:
   push:
     tags:
-      - '*/v*.*.*'
+      - '**/v*.*.*'
   workflow_dispatch:
 
 # Needed for nx-set-shas when run on the main branch
@@ -16,7 +16,6 @@ permissions:
 jobs:
   publish:
     runs-on: ubuntu-latest
-    if: github.event.pull_request.merged == true
     defaults:
       run:
         shell: bash
