@@ -1,3 +1,15 @@
+## 0.0.6 (2024-06-08)
+
+
+### 🩹 Fixes
+
+- **react-required-contexts:** fix beta
+
+
+### ❤️  Thank You
+
+- Mikael Labrut
+
 ## 0.0.5 (2024-06-08)
 
 
