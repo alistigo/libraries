@@ -1,3 +1,15 @@
+## 0.0.5 (2024-06-08)
+
+
+### 🩹 Fixes
+
+- **react-required-contexts:** documentation and publish
+
+
+### ❤️  Thank You
+
+- Mikael Labrut
+
 ## 0.0.4 (2024-06-08)
 
 
