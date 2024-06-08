@@ -1,6 +1,6 @@
 {
   "name": "@alistigo/react-required-contexts",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "A plugin to react to manage required contexts",
   "keywords": [
     "react",
