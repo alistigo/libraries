@@ -3,7 +3,7 @@
 A react component tree can require multiple react context, and its easy to be lost.
 This library offer a way to define for each **component** and **hook** what are the required contexts.
 
-It offers also tool to **wrap** a component into **only its required contexts**.
+It offers also some tools to **wrap** a component into **only its required contexts**.
 
 ## Setup
 
@@ -19,7 +19,7 @@ export const props = {
 };
 ```
 
-The exported module (*.context.ts) should be of TS type `ContextConfig`
+The exported module (\*.context.ts) should be of TS type `ContextConfig`
 
 ### 2 - Library setup: combine all contexts (`required-contexts.ts`)
 
@@ -45,6 +45,7 @@ setupDefaultContexts(requiredContexts);
 ### 3 - For each component / hook / part of your application define its required contexts
 
 #### Component
+
 ```tsx
 import { PositionContext } from './contexts/position';
 
@@ -59,6 +60,7 @@ MyComponent.requiredContexts = [PositionContext];
 ```
 
 #### Hook
+
 ```tsx
 import { PositionContext } from './contexts/position';
 
@@ -82,13 +84,14 @@ import Component3 from './components/Component3';
 import useMyHook from './hooks/useMyHook';
 
 export default function MyApp() {
-
   useMyHook();
 
-  return <Component1>
-    <Component2 />
-    <Component3 />
-  </Component1>;
+  return (
+    <Component1>
+      <Component2 />
+      <Component3 />
+    </Component1>
+  );
 }
 
 // Required context definition
@@ -105,10 +108,9 @@ MyApp.requiredContexts = mergeContexts(
 ### Automatically wrap component into all the component required contexts
 
 ```jsx
-
 <RequiredContextsWrapper
   contexts={MyComponent.requiredContexts}
-  parameters={{ position: { startPosition: 'new-position' }}}
+  parameters={{ position: { startPosition: 'new-position' } }}
 >
   <MyComponent />
 </RequiredContextsWrapper>
