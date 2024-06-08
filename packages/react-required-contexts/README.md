@@ -1,5 +1,7 @@
 # react-required-contexts
 
+**BETA**
+
 A react component tree can require multiple react context, and its easy to be lost.
 This library offer a way to define for each **component** and **hook** what are the required contexts.
 
