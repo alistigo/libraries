@@ -107,7 +107,7 @@ MyApp.requiredContexts = mergeContexts(
 
 ### Automatically wrap component into all the component required contexts
 
-```jsx
+```tsx
 <RequiredContextsWrapper
   contexts={MyComponent.requiredContexts}
   parameters={{ position: { startPosition: 'new-position' } }}
