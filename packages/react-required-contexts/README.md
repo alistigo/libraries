@@ -105,7 +105,7 @@ MyApp.requiredContexts = mergeContexts(
 
 ## Usage
 
-### Automatically wrap component into all the component required contexts
+### Automatically wrap component into all the required contexts
 
 ```tsx
 <RequiredContextsWrapper
