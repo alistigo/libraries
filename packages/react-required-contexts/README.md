@@ -42,7 +42,7 @@ import requiredContexts from 'config/required-contexts';
 setupDefaultContexts(requiredContexts);
 ```
 
-### 3 - For each component / hook / part of your application define its required contexts
+### 3 - For each component / hook / part of your application -> define their required contexts
 
 #### Component
 
