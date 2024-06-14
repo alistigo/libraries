@@ -11,6 +11,8 @@ permissions:
   actions: read
   contents: write # for checkout and tag
   pull-requests: write # 'write' access to pull requests
+  packages: write # for publish
+  id-token: write # needed for provenance data generation
 
 jobs:
   release:
