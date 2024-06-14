@@ -61,11 +61,26 @@ jobs:
             ~/.cache/Cypress # needed for the Cypress binary
           key: npm-dependencies-${{ hashFiles('pnpm-lock.yaml') }}
 
+      # This line enables distribution
+      # The "--stop-agents-after" is optional, but allows idle agents to shut down once the "e2e-ci" targets have been requested
+      # - run: npx nx-cloud start-ci-run --distribute-on="5 linux-medium-js" --stop-agents-after="e2e-ci"
+      - name: Setup SHAs
+        uses: nrwl/nx-set-shas@v4
+
       - name: Nx report
         run: pnpm exec nx report
 
+      - name: Nx format
+        run: pnpm exec nx format:check
+
+      - name: Lint
+        run: pnpm exec nx affected -t lint
+
+      - name: Test
+        run: pnpm exec nx affected -t test
+
       - name: Build
-        run: pnpm exec nx build
+        run: pnpm exec nx affected -t build
 
       - name: Release
         run: pnpm exec nx release --yes
