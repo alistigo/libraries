@@ -1,0 +1,35 @@
+{
+  "name": "third-party-js-application-client",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "packages/third-party-js-application-client/src",
+  "projectType": "library",
+  "tags": [],
+  "targets": {
+    "build": {
+      "executor": "@nx/js:tsc",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/packages/third-party-js-application-client",
+        "main": "packages/third-party-js-application-client/src/index.ts",
+        "tsConfig": "packages/third-party-js-application-client/tsconfig.lib.json",
+        "assets": ["packages/third-party-js-application-client/*.md"]
+      }
+    },
+    "lint": {
+      "executor": "@nx/eslint:lint",
+      "options": {
+        "lintFilePatterns": [
+          "packages/third-party-js-application-client/src/**/*.ts"
+        ],
+        "quiet": true
+      }
+    },
+    "test": {
+      "executor": "@nx/jest:jest",
+      "options": {
+        "jestConfig": "packages/third-party-js-application-client/jest.config.ts",
+        "passWithNoTests": true
+      }
+    }
+  }
+}

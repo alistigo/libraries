@@ -18,7 +18,10 @@
       "react-required-contexts": [
         "packages/react-required-contexts/src/index.ts"
       ]
-    }
+    },
+
+    "esModuleInterop": true,
+    "resolveJsonModule": true
   },
   "exclude": ["node_modules", "tmp"]
 }

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <meta name="theme-color" content="#000000" />
+    <title>third-party-js-playground</title>
+  </head>
+
+  <body>
+    <noscript> You need to enable JavaScript to run this app. </noscript>
+    <h1>Host - 3rd party js app playground</h1>
+    <button onclick="console.info('on click host button')">Host button</button>
+    <div id="my3rdPartyJsApp-viewport"></div>
+    <script type="text/javascript">
+      window.my3rdPartyJsApp = window.thirdPartyContainer.require(
+        'thirdPartyJs.js',
+        document.getElementById('my3rdPartyJsApp-viewport')
+      );
+      window.my3rdPartyJsApp
+        .call('setup', 'my-credentials')
+        .then((result) => console.info('credential acknowledge', result));
+      window.my3rdPartyJsApp
+        .call('add', 5, 10)
+        .then((result) => console.info('10+5 = ', result));
+    </script>
+  </body>
+</html>
