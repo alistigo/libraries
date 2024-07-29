@@ -7,7 +7,7 @@ export interface ThirdPartyContainerApi {
   require: <T>(
     name: string,
     url: string,
-    options?: ThirdPartyApplicationOptions<T>,
+    options?: ThirdPartyApplicationOptions<T>
   ) => ThirdPartyApplicationApi;
 
   unmount: (name: string) => boolean;

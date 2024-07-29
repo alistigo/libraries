@@ -52,13 +52,13 @@ export function ThirdPartyJsViewportProvider({
   useEffect(() => {
     window.addEventListener(
       ThirdPartyApplicationClientEvents.VIEWPORT_CHANGED_BY_HOST as any,
-      onViewportChangedByHost,
+      onViewportChangedByHost
     );
 
     return () => {
       window.removeEventListener(
         ThirdPartyApplicationClientEvents.VIEWPORT_CHANGED_BY_HOST as any,
-        onViewportChangedByHost,
+        onViewportChangedByHost
       );
     };
   }, []);
@@ -71,7 +71,7 @@ export function ThirdPartyJsViewportProvider({
     if (
       await hostClient.command(
         ThirdPartyApplicationCommands.SET_VIEWPORT,
-        value,
+        value
       )
     ) {
       saveViewportValue(value);
@@ -88,7 +88,7 @@ export function ThirdPartyJsViewportProvider({
     if (
       await hostClient.command(
         ThirdPartyApplicationCommands.UPDATE_VIEWPORT,
-        updatedValue,
+        updatedValue
       )
     ) {
       saveViewportValue((currentViewport) => ({

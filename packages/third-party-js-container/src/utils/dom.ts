@@ -7,7 +7,7 @@ export function buildTargetDivNode(name: string): HTMLDivElement {
 
 export function buildIframe(
   name: string = 'super-iframe',
-  disableSandboxing: boolean = false,
+  disableSandboxing: boolean = false
 ): HTMLIFrameElement {
   const iframe = document.createElement('iframe');
   iframe.setAttribute('frameborder', '0');
@@ -20,12 +20,12 @@ export function buildIframe(
   iframe.setAttribute('fetchpriority', 'low');
   iframe.setAttribute(
     'style',
-    'border-style: none; opacity:0; visibility:none; width:0; height:0; display:none; position:absolute; overflow: hidden;',
+    'border-style: none; opacity:0; visibility:none; width:0; height:0; display:none; position:absolute; overflow: hidden;'
   );
   if (!disableSandboxing) {
     iframe.setAttribute(
       'sandbox',
-      'allow-scripts allow-same-origin allow-popups allow-top-navigation',
+      'allow-scripts allow-same-origin allow-popups allow-top-navigation'
     );
   }
 

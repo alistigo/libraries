@@ -64,7 +64,7 @@ function localStorageWriteAccess(): boolean {
   try {
     localStorage.setItem(
       LOCAL_STORAGE_WIDGET_BASIC_NAME,
-      LOCAL_STORAGE_WIDGET_BASIC_VALUE,
+      LOCAL_STORAGE_WIDGET_BASIC_VALUE
     );
     return true;
   } catch (e) {

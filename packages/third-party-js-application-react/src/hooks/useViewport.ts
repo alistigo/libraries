@@ -6,6 +6,6 @@ import {
 
 export default function useViewport(): ThirdPartyJsViewportContextData {
   return useContext<ThirdPartyJsViewportContextData>(
-    ThirdPartyJsViewportContext,
+    ThirdPartyJsViewportContext
   );
 }

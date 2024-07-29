@@ -9,11 +9,11 @@ import useThirdPartyApplication from './useThirdPartyApplication';
 
 export type UseThirdPartyViewportResult = [
   Viewport | undefined,
-  ThirdPartyApplicationApi | undefined,
+  ThirdPartyApplicationApi | undefined
 ];
 
 export default function useThirdPartyViewport(
-  name: string,
+  name: string
 ): UseThirdPartyViewportResult {
   const application = useThirdPartyApplication(name);
   const [viewport, setViewport] = useState<Viewport | undefined>();
@@ -30,13 +30,13 @@ export default function useThirdPartyViewport(
 
       application.addEventListener(
         ThirdPartyApplicationEvents.VIEWPORT_CHANGE,
-        viewportChangeHandler,
+        viewportChangeHandler
       );
 
       return () => {
         application.removeEventListener(
           ThirdPartyApplicationEvents.VIEWPORT_CHANGE,
-          viewportChangeHandler,
+          viewportChangeHandler
         );
       };
     }
