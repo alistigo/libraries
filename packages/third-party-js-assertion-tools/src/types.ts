@@ -1,5 +1,5 @@
 export interface Check {
-  test: Function;
-  setup?: Function;
+  test: () => void;
+  setup?: () => void;
   errorMsg: string;
 }

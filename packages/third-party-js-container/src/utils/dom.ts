@@ -6,8 +6,8 @@ export function buildTargetDivNode(name: string): HTMLDivElement {
 }
 
 export function buildIframe(
-  name: string = 'super-iframe',
-  disableSandboxing: boolean = false
+  name = 'super-iframe',
+  disableSandboxing = false
 ): HTMLIFrameElement {
   const iframe = document.createElement('iframe');
   iframe.setAttribute('frameborder', '0');

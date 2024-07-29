@@ -43,7 +43,7 @@ export function resultMessage(
 export function responseMessageFromEvent(
   event: MessageEvent,
   result?: any,
-  from: string = 'responseMessageFromEvent'
+  from = 'responseMessageFromEvent'
 ): void {
   if (event.data.__acknowledged) {
     return;
