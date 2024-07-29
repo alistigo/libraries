@@ -110,6 +110,7 @@ export default function useThirdPartyApplicationClientDebug(
         );
       };
     }
+    // eslint-disable-next-line @typescript-eslint/no-empty-function
     return () => {};
   }, [client]);
 

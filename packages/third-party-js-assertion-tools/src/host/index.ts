@@ -72,6 +72,7 @@ function localStorageWriteAccess(): boolean {
   }
 }
 
+// eslint-disable-next-line @typescript-eslint/no-empty-function
 function localStorageWriteSetup(): void {}
 
 function domReadAccess(): boolean {
