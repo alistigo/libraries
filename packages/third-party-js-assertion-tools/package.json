@@ -1,0 +1,35 @@
+{
+  "name": "@alistigo/third-party-js-assertion-tools",
+  "version": "0.1.1",
+  "description": "",
+  "keywords": [
+    "third-party",
+    "loader",
+    "public"
+  ],
+  "engines": {
+    "node": ">=20.0"
+  },
+  "author": "Mikaël Labrut <labrut@gmail.com>",
+  "license": "MIT",
+  "main": "./src/index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/alistigo/libraries.git",
+    "directory": "packages/third-party-js-assertion-tools"
+  },
+  "dependencies": {
+    "@types/js-cookie": "^2.2.6",
+    "js-cookie": "^2.2.1"
+  },
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org/"
+  },
+  "type": "commonjs",
+  "typings": "./src/index.d.ts",
+  "bugs": {
+    "url": "https://github.com/alistigo/libraries/issues"
+  },
+  "homepage": "https://github.com/alistigo/libraries/tree/main/packages/third-party-js-assertion-tools"
+}

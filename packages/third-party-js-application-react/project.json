@@ -1,0 +1,35 @@
+{
+  "name": "third-party-js-application-react",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "packages/third-party-js-application-react/src",
+  "projectType": "library",
+  "tags": [],
+  "targets": {
+    "build": {
+      "executor": "@nx/js:tsc",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/packages/third-party-js-application-react",
+        "main": "packages/third-party-js-application-react/src/index.ts",
+        "tsConfig": "packages/third-party-js-application-react/tsconfig.lib.json",
+        "assets": ["packages/third-party-js-application-react/*.md"]
+      }
+    },
+    "lint": {
+      "executor": "@nx/eslint:lint",
+      "options": {
+        "lintFilePatterns": [
+          "packages/third-party-js-application-react/src/**/*.ts"
+        ],
+        "quiet": true
+      }
+    },
+    "test": {
+      "executor": "@nx/jest:jest",
+      "options": {
+        "jestConfig": "packages/third-party-js-application-react/jest.config.ts",
+        "passWithNoTests": true
+      }
+    }
+  }
+}

@@ -1,0 +1,34 @@
+{
+  "name": "@alistigo/third-party-js-container-builder",
+  "version": "0.1.16",
+  "description": "",
+  "keywords": [
+    "third-party",
+    "loader",
+    "builder"
+  ],
+  "engines": {
+    "node": ">=20.0"
+  },
+  "author": "Mikaël Labrut <labrut@gmail.com>",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/alistigo/libraries.git",
+    "directory": "packages/third-party-js-container-builder"
+  },
+  "scripts": {
+    "build": "webpack --mode production"
+  },
+  "dependencies": {
+    "@alistigo/third-party-js-container": "^0.6.7"
+  },
+  "private": "true",
+  "publishConfig": {
+    "access": "restricted"
+  }
+}

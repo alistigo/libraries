@@ -1,0 +1,35 @@
+{
+  "name": "third-party-js-assertion-tools",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "packages/third-party-js-assertion-tools/src",
+  "projectType": "library",
+  "tags": [],
+  "targets": {
+    "build": {
+      "executor": "@nx/js:tsc",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/packages/third-party-js-assertion-tools",
+        "main": "packages/third-party-js-assertion-tools/src/index.ts",
+        "tsConfig": "packages/third-party-js-assertion-tools/tsconfig.lib.json",
+        "assets": ["packages/third-party-js-assertion-tools/*.md"]
+      }
+    },
+    "lint": {
+      "executor": "@nx/eslint:lint",
+      "options": {
+        "lintFilePatterns": [
+          "packages/third-party-js-assertion-tools/src/**/*.ts"
+        ],
+        "quiet": true
+      }
+    },
+    "test": {
+      "executor": "@nx/jest:jest",
+      "options": {
+        "jestConfig": "packages/third-party-js-assertion-tools/jest.config.ts",
+        "passWithNoTests": true
+      }
+    }
+  }
+}
