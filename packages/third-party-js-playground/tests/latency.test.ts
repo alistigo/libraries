@@ -29,7 +29,7 @@ describe('Test application with latency (iframe load after 3s of latency)', () =
         logger: loggerMock,
         communicationLogEnabled: false,
         communicationLogLevel: ThirdPartyApplicationClientLogLevel.DEBUG,
-      },
+      }
     );
   });
 

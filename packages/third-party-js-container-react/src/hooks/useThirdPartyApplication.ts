@@ -4,7 +4,7 @@ import { useEffect, useState } from 'react';
 import useThirdPartyApplicationClient from './useThirdPartyApplicationClient';
 
 export default function useThirdPartyApplication(
-  name: string,
+  name: string
 ): ThirdPartyApplicationApi | undefined {
   const [application, setApplication] = useState<ThirdPartyApplicationApi>();
   const client = useThirdPartyApplicationClient(name);

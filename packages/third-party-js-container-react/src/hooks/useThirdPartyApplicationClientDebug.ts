@@ -11,7 +11,7 @@ export interface UseThirdPartyApplicationClientDebugResult {
   communicationLogLevel: ThirdPartyApplicationClientLogLevel;
 
   setCommunicationLogLevel: (
-    level: ThirdPartyApplicationClientLogLevel,
+    level: ThirdPartyApplicationClientLogLevel
   ) => Promise<boolean>;
   setCommunicationLog: (enable: boolean) => Promise<boolean>;
 }
@@ -25,16 +25,16 @@ export interface ThirdPartyApplicationClientDebugState {
 }
 
 export default function useThirdPartyApplicationClientDebug(
-  name: string,
+  name: string
 ): UseThirdPartyApplicationClientDebugResult {
   const client = useThirdPartyApplicationClient(name);
   const [isCommunicationDebug, setIsCommunicationDebug] = useState<boolean>(
-    client?.isCommunicationLogEnabled() || false,
+    client?.isCommunicationLogEnabled() || false
   );
   const [communicationLogLevel, setCommunicationLogLevel] =
     useState<ThirdPartyApplicationClientLogLevel>(
       client?.getCommunicationLogLevel() ||
-        ThirdPartyApplicationClientLogLevel.ERROR,
+        ThirdPartyApplicationClientLogLevel.ERROR
     );
 
   function isCommunicationDebugChangeHandler(e: Event) {
@@ -43,17 +43,17 @@ export default function useThirdPartyApplicationClientDebug(
 
   function communicationLogLevelChangeHandler(e: Event) {
     setCommunicationLogLevel(
-      (e as CustomEvent<ThirdPartyApplicationClientLogLevel>).detail,
+      (e as CustomEvent<ThirdPartyApplicationClientLogLevel>).detail
     );
   }
 
   async function changeCommunicationLogLevel(
-    level: ThirdPartyApplicationClientLogLevel,
+    level: ThirdPartyApplicationClientLogLevel
   ) {
     if (client) {
       localStorage.setItem(
         ThirdPartyApplicationClientDebugStateKey,
-        JSON.stringify({ logLevel: level, enabled: isCommunicationDebug }),
+        JSON.stringify({ logLevel: level, enabled: isCommunicationDebug })
       );
       return client.setCommunicationLogLevel(level);
     }
@@ -64,7 +64,7 @@ export default function useThirdPartyApplicationClientDebug(
     if (client) {
       localStorage.setItem(
         ThirdPartyApplicationClientDebugStateKey,
-        JSON.stringify({ logLevel: communicationLogLevel, enabled: enable }),
+        JSON.stringify({ logLevel: communicationLogLevel, enabled: enable })
       );
       return client.setCommunicationLog(enable);
     }
@@ -74,11 +74,11 @@ export default function useThirdPartyApplicationClientDebug(
   useEffect(() => {
     if (client) {
       const previousState = localStorage.getItem(
-        ThirdPartyApplicationClientDebugStateKey,
+        ThirdPartyApplicationClientDebugStateKey
       );
       if (previousState) {
         const previousStateValue = JSON.parse(
-          previousState,
+          previousState
         ) as ThirdPartyApplicationClientDebugState;
 
         client.setCommunicationLogLevel(previousStateValue.logLevel);
@@ -90,23 +90,23 @@ export default function useThirdPartyApplicationClientDebug(
 
       client.addEventListener(
         ThirdPartyApplicationClientEvents.COMMUNICATION_DEBUG_CHANGE,
-        isCommunicationDebugChangeHandler,
+        isCommunicationDebugChangeHandler
       );
 
       client.addEventListener(
         ThirdPartyApplicationClientEvents.COMMUNICATION_LOG_LEVEL_CHANGE,
-        communicationLogLevelChangeHandler,
+        communicationLogLevelChangeHandler
       );
 
       return () => {
         client.removeEventListener(
           ThirdPartyApplicationClientEvents.COMMUNICATION_DEBUG_CHANGE,
-          isCommunicationDebugChangeHandler,
+          isCommunicationDebugChangeHandler
         );
 
         client.removeEventListener(
           ThirdPartyApplicationClientEvents.COMMUNICATION_LOG_LEVEL_CHANGE,
-          communicationLogLevelChangeHandler,
+          communicationLogLevelChangeHandler
         );
       };
     }

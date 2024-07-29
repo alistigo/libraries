@@ -15,7 +15,7 @@ export function ThirdPartyJsClientProvider({
   client = undefined,
 }: ThirdPartyJsClientProviderProperties) {
   const [actualClient] = useState<ThirdPartyApplicationClient | undefined>(
-    client,
+    client
   );
   const [clientHostDataInitialized, setClientHostDataInitialized] =
     useState(false);

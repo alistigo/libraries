@@ -10,7 +10,7 @@ module.exports = {
   entry: {
     index: path.resolve(
       __dirname,
-      '../../src/application-test/applicationTest.ts',
+      '../../src/application-test/applicationTest.ts'
     ),
   },
   output: {

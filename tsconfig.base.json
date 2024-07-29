@@ -19,7 +19,6 @@
         "packages/react-required-contexts/src/index.ts"
       ]
     },
-
     "esModuleInterop": true,
     "resolveJsonModule": true
   },

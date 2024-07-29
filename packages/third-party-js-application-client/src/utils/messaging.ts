@@ -12,7 +12,7 @@ export const MESSAGING_PROTOCOL_VERSION = 1;
 
 export function acknowledgeMessage(
   message: CallMessage,
-  from: string,
+  from: string
 ): AcknowledgeMessage {
   return {
     __from: from,
@@ -27,7 +27,7 @@ export function acknowledgeMessage(
 export function resultMessage(
   message: CallMessage,
   result: any,
-  from: string,
+  from: string
 ): ResultMessage {
   return {
     __from: from,
@@ -43,7 +43,7 @@ export function resultMessage(
 export function responseMessageFromEvent(
   event: MessageEvent,
   result?: any,
-  from: string = 'responseMessageFromEvent',
+  from: string = 'responseMessageFromEvent'
 ): void {
   if (event.data.__acknowledged) {
     return;

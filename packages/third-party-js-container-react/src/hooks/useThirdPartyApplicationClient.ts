@@ -7,7 +7,7 @@ import { useEffect, useState } from 'react';
 import { container } from '@alistigo/third-party-js-container';
 
 export default function useThirdPartyApplicationClient(
-  name: string,
+  name: string
 ): ThirdPartyApplicationClientApi | undefined {
   const [client, setClient] = useState<ThirdPartyApplicationClientApi>();
 
@@ -28,21 +28,21 @@ export default function useThirdPartyApplicationClient(
   useEffect(() => {
     container.addEventListener(
       ThirdPartyContainerEvents.NEW_APP,
-      handleNewApplication,
+      handleNewApplication
     );
     container.addEventListener(
       ThirdPartyContainerEvents.UNMOUNT_APP,
-      handleUnmountApplication,
+      handleUnmountApplication
     );
 
     return () => {
       container.removeEventListener(
         ThirdPartyContainerEvents.NEW_APP,
-        handleNewApplication,
+        handleNewApplication
       );
       container.removeEventListener(
         ThirdPartyContainerEvents.UNMOUNT_APP,
-        handleUnmountApplication,
+        handleUnmountApplication
       );
     };
   }, [container]);

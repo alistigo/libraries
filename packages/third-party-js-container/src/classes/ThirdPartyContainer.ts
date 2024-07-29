@@ -27,7 +27,7 @@ export default class ThirdPartyContainer implements ThirdPartyContainerApi {
   require<T>(
     name: string,
     url: string,
-    options: ThirdPartyApplicationOptions<T> = {},
+    options: ThirdPartyApplicationOptions<T> = {}
   ): ThirdPartyApplicationApi {
     if (this.applications[name]) {
       return this.applications[name];
@@ -41,7 +41,7 @@ export default class ThirdPartyContainer implements ThirdPartyContainerApi {
           name,
           application,
         },
-      }),
+      })
     );
 
     if (
@@ -52,7 +52,7 @@ export default class ThirdPartyContainer implements ThirdPartyContainerApi {
       // eslint-disable-next-line no-console
       console.log(
         `Third party application ${name} (${url}) required with options`,
-        options,
+        options
       );
     }
 
@@ -67,7 +67,7 @@ export default class ThirdPartyContainer implements ThirdPartyContainerApi {
             name,
             application: this.applications[name],
           },
-        }),
+        })
       );
       this.applications[name].unmount();
 
@@ -84,7 +84,7 @@ export default class ThirdPartyContainer implements ThirdPartyContainerApi {
   addEventListener(
     type: string,
     listener: EventListenerOrEventListenerObject,
-    options?: boolean | AddEventListenerOptions,
+    options?: boolean | AddEventListenerOptions
   ): void {
     window.addEventListener(type, listener, options);
     this.eventListeners.push({
@@ -96,18 +96,18 @@ export default class ThirdPartyContainer implements ThirdPartyContainerApi {
   removeEventListener(
     type: string,
     listener: EventListenerOrEventListenerObject,
-    options?: boolean | EventListenerOptions,
+    options?: boolean | EventListenerOptions
   ): void {
     window.removeEventListener(type, listener, options);
     this.eventListeners = this.eventListeners.filter(
       ({ type: typeValue, listener: listenerValue }) =>
-        typeValue !== type && listenerValue !== listener,
+        typeValue !== type && listenerValue !== listener
     );
   }
 
   removeAllEventListeners() {
     this.eventListeners.forEach(({ type, listener }) =>
-      window.removeEventListener(type, listener),
+      window.removeEventListener(type, listener)
     );
     this.eventListeners = [];
   }

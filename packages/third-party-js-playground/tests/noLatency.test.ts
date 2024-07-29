@@ -30,7 +30,7 @@ describe('Test application in a context with no latency (iframe load immediately
         logger: loggerMock,
         communicationLogEnabled: false,
         communicationLogLevel: ThirdPartyApplicationClientLogLevel.DEBUG,
-      },
+      }
     );
   });
 

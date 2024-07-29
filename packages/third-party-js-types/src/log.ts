@@ -7,7 +7,7 @@ export enum ThirdPartyApplicationClientLogLevel {
 
 export interface CommunicationLog {
   setCommunicationLogLevel: (
-    level: ThirdPartyApplicationClientLogLevel,
+    level: ThirdPartyApplicationClientLogLevel
   ) => Promise<boolean>;
   getCommunicationLogLevel: () => ThirdPartyApplicationClientLogLevel;
 

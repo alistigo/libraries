@@ -11,7 +11,7 @@ export interface UseExternalMethodCallResult<T> {
 export default function useExternalMethodCall<T>(
   listenMethodName: string,
   handler?: (...args: any[]) => any,
-  initValue?: T,
+  initValue?: T
 ): UseExternalMethodCallResult<T> {
   const [callCount, setCallCount] = useState<number>(0);
   const [data, setData] = useState<any>(initValue);
