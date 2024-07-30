@@ -15,9 +15,7 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@alistigo/*": [
-        "packages/*/src/index.ts"
-      ]
+      "@alistigo/*": ["packages/*/src/index.ts"]
     },
     "esModuleInterop": true,
     "resolveJsonModule": true
