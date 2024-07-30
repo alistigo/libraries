@@ -1,5 +1,5 @@
-const { NxWebpackPlugin } = require('@nx/webpack');
-const { NxReactWebpackPlugin } = require('@nx/react');
+const { NxAppWebpackPlugin } = require('@nx/webpack/app-plugin');
+const { NxReactWebpackPlugin } = require('@nx/react/webpack-plugin');
 const { join } = require('path');
 
 module.exports = {
@@ -13,7 +13,7 @@ module.exports = {
     port: 4200,
   },
   plugins: [
-    new NxWebpackPlugin({
+    new NxAppWebpackPlugin({
       tsConfig: './tsconfig.app.json',
       compiler: 'babel',
       main: './src/main.tsx',
