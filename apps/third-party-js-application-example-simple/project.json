@@ -1,0 +1,9 @@
+{
+  "name": "third-party-js-application-example-simple",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "apps/third-party-js-application-example-simple/src",
+  "projectType": "application",
+  "tags": [],
+  "// targets": "to see all targets run: nx show project third-party-js-application-example-simple --web",
+  "targets": {}
+}
