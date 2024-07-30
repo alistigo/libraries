@@ -15,8 +15,8 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "react-required-contexts": [
-        "packages/react-required-contexts/src/index.ts"
+      "@alistigo/*": [
+        "packages/*/src/index.ts"
       ]
     },
     "esModuleInterop": true,

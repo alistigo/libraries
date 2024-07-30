@@ -23,7 +23,7 @@
     "@alistigo/third-party-js-types": "^0.4.5"
   },
   "peerDependencies": {
-    "react": "^18.2.0"
+    "react": "^18.3.1"
   },
   "publishConfig": {
     "access": "public",
