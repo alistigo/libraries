@@ -5,5 +5,29 @@
   "projectType": "application",
   "tags": [],
   "// targets": "to see all targets run: nx show project third-party-js-playground --web",
-  "targets": {}
+  "targets": {
+    "lint": {
+      "executor": "@nx/eslint:lint",
+      "options": {
+        "lintFilePatterns": [
+          "apps/third-party-js-playground/src/**/*.{js,jsx,ts,tsx}"
+        ],
+        "quiet": true
+      }
+    },
+    "test": {
+      "executor": "@nx/jest:jest",
+      "options": {
+        "jestConfig": "apps/third-party-js-playground/jest.config.ts",
+        "passWithNoTests": true
+      }
+    },
+    "build": {
+      "executor": "@nx/webpack:webpack",
+      "options": {
+        "webpackConfig": "apps/third-party-js-playground/webpack.config.js",
+        "outputPath": "dist/apps/third-party-js-playground"
+      }
+    }
+  }
 }
