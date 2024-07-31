@@ -1,0 +1,28 @@
+{
+  "name": "@alistigo/third-party-js-playground",
+  "version": "0.0.0",
+  "description": "",
+  "keywords": [
+    "application"
+  ],
+  "engines": {
+    "node": ">=20.0"
+  },
+  "author": "Mikaël Labrut <labrut@gmail.com>",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/alistigo/libraries.git",
+    "directory": "packages/third-party-js-playground"
+  },
+  "dependencies": {},
+  "publishConfig": {
+    "access": "restricted",
+    "registry": "https://registry.npmjs.org/"
+  },
+  "private": true,
+  "bugs": {
+    "url": "https://github.com/alistigo/libraries/issues"
+  },
+  "homepage": "https://github.com/alistigo/libraries/tree/main/packages/third-party-js-playground"
+}
