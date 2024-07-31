@@ -76,13 +76,13 @@ jobs:
         run: pnpm exec nx format:check
 
       - name: Lint
-        run: pnpm exec nx affected -t lint
+        run: pnpm exec lint
 
       - name: Test
-        run: pnpm exec nx affected -t test
+        run: pnpm exec test
 
       - name: Build
-        run: pnpm exec nx affected -t build
+        run: pnpm exec build
 
       - name: Release
         run: pnpm exec nx release --yes
