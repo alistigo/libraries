@@ -1,3 +1,28 @@
+## 0.4.0 (2024-07-31)
+
+
+### 🚀 Features
+
+- **apps:** add playground and one app example
+
+
+### 🩹 Fixes
+
+- **third-party-js:** fix types
+
+- **third-party-js:** fix formating
+
+
+### 🧱 Updated Dependencies
+
+- Updated third-party-js-application-client to 0.4.8
+- Updated third-party-js-types to 0.4.6
+
+
+### ❤️  Thank You
+
+- Mikael Labrut
+
 # Change Log
 
 All notable changes to this project will be documented in this file.

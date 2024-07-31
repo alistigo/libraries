@@ -1,3 +1,21 @@
+## 0.1.2 (2024-07-31)
+
+
+### 🩹 Fixes
+
+- **third-party-js:** fix types
+
+- **third-party-js:** fix formating
+
+- **third-party-js:** fix lint
+
+- **build:** fix missing task targets
+
+
+### ❤️  Thank You
+
+- Mikael Labrut
+
 # Change Log
 
 All notable changes to this project will be documented in this file.

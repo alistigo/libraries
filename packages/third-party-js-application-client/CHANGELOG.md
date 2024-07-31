@@ -1,3 +1,24 @@
+## 0.4.8 (2024-07-31)
+
+
+### 🩹 Fixes
+
+- **third-party-js:** fix types
+
+- **third-party-js:** fix formating
+
+- **third-party-js:** fix lint
+
+
+### 🧱 Updated Dependencies
+
+- Updated third-party-js-types to 0.4.6
+
+
+### ❤️  Thank You
+
+- Mikael Labrut
+
 # Change Log
 
 All notable changes to this project will be documented in this file.

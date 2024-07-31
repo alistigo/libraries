@@ -1,3 +1,17 @@
+## 0.4.6 (2024-07-31)
+
+
+### 🩹 Fixes
+
+- **third-party-js:** fix types
+
+- **third-party-js:** fix formating
+
+
+### ❤️  Thank You
+
+- Mikael Labrut
+
 # Change Log
 
 All notable changes to this project will be documented in this file.

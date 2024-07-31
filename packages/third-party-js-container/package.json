@@ -1,6 +1,6 @@
 {
   "name": "@alistigo/third-party-js-container",
-  "version": "0.6.7",
+  "version": "0.6.8",
   "description": "",
   "keywords": [
     "third-party",
@@ -21,8 +21,8 @@
     "directory": "packages/third-party-js-container"
   },
   "dependencies": {
-    "@alistigo/third-party-js-application-client": "^0.4.7",
-    "@alistigo/third-party-js-types": "^0.4.5"
+    "@alistigo/third-party-js-application-client": "^0.4.8",
+    "@alistigo/third-party-js-types": "^0.4.6"
   },
   "publishConfig": {
     "access": "public",

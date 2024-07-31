@@ -142,6 +142,10 @@ importers:
         specifier: ^5.1.4
         version: 5.1.4(webpack@5.93.0)
 
+  apps/third-party-js-application-example-simple: {}
+
+  apps/third-party-js-playground: {}
+
   packages/react-required-contexts:
     dependencies:
       lodash:
@@ -157,16 +161,16 @@ importers:
   packages/third-party-js-application-client:
     dependencies:
       '@alistigo/third-party-js-types':
-        specifier: ^0.4.5
+        specifier: ^0.4.6
         version: link:../third-party-js-types
 
   packages/third-party-js-application-react:
     dependencies:
       '@alistigo/third-party-js-application-client':
-        specifier: ^0.4.7
+        specifier: ^0.4.8
         version: link:../third-party-js-application-client
       '@alistigo/third-party-js-types':
-        specifier: ^0.4.5
+        specifier: ^0.4.6
         version: link:../third-party-js-types
       react:
         specifier: ^18.3.1
@@ -184,19 +188,19 @@ importers:
   packages/third-party-js-container:
     dependencies:
       '@alistigo/third-party-js-application-client':
-        specifier: ^0.4.7
+        specifier: ^0.4.8
         version: link:../third-party-js-application-client
       '@alistigo/third-party-js-types':
-        specifier: ^0.4.5
+        specifier: ^0.4.6
         version: link:../third-party-js-types
 
   packages/third-party-js-container-react:
     dependencies:
       '@alistigo/third-party-js-container':
-        specifier: ^0.6.7
+        specifier: ^0.6.8
         version: link:../third-party-js-container
       '@alistigo/third-party-js-types':
-        specifier: ^0.4.5
+        specifier: ^0.4.6
         version: link:../third-party-js-types
       react:
         specifier: ^18.3.1
