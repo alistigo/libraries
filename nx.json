@@ -76,7 +76,7 @@
       "automaticFromRef": true,
       "projectChangelogs": true
     },
-    "projects": ["*", "!private"],
+    "projects": ["*"],
     "version": {
       "conventionalCommits": true,
       "generatorOptions": {
