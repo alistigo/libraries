@@ -1,3 +1,3 @@
-# Third-party-js-loader types
+# @alistigo/third-party-js-types
 
-TS types shared between third party loader packages.
+TS types shared between third-party-js libraries.
