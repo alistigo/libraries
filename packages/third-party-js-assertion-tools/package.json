@@ -3,9 +3,10 @@
   "version": "0.1.2",
   "description": "",
   "keywords": [
-    "third-party",
-    "loader",
-    "public"
+    "third-party-js",
+    "public",
+    "internal",
+    "tools"
   ],
   "engines": {
     "node": ">=20.0"

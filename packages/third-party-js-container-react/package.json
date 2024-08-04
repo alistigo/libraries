@@ -3,8 +3,9 @@
   "version": "0.4.0",
   "description": "",
   "keywords": [
-    "third-party",
-    "loader",
+    "third-party-js",
+    "react",
+    "host",
     "public"
   ],
   "engines": {
