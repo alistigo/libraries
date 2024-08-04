@@ -3,10 +3,8 @@
   "version": "0.6.8",
   "description": "",
   "keywords": [
-    "third-party",
-    "javascript",
+    "third-party-js",
     "host",
-    "container",
     "public"
   ],
   "engines": {
