@@ -1,3 +1,15 @@
+## 0.4.7 (2024-08-04)
+
+
+### 🩹 Fixes
+
+- **package:** add tags, force release
+
+
+### ❤️  Thank You
+
+- Mikael Labrut
+
 ## 0.4.6 (2024-07-31)
 
 

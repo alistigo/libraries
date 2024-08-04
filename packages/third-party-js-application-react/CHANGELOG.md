@@ -1,3 +1,21 @@
+## 0.4.1 (2024-08-04)
+
+
+### 🩹 Fixes
+
+- **package:** add tags, force release
+
+
+### 🧱 Updated Dependencies
+
+- Updated third-party-js-application-client to 0.4.9
+- Updated third-party-js-types to 0.4.7
+
+
+### ❤️  Thank You
+
+- Mikael Labrut
+
 ## 0.4.0 (2024-07-31)
 
 

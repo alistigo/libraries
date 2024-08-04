@@ -161,16 +161,16 @@ importers:
   packages/third-party-js-application-client:
     dependencies:
       '@alistigo/third-party-js-types':
-        specifier: ^0.4.6
+        specifier: ^0.4.7
         version: link:../third-party-js-types
 
   packages/third-party-js-application-react:
     dependencies:
       '@alistigo/third-party-js-application-client':
-        specifier: ^0.4.8
+        specifier: ^0.4.9
         version: link:../third-party-js-application-client
       '@alistigo/third-party-js-types':
-        specifier: ^0.4.6
+        specifier: ^0.4.7
         version: link:../third-party-js-types
       react:
         specifier: ^18.3.1
@@ -188,19 +188,19 @@ importers:
   packages/third-party-js-container:
     dependencies:
       '@alistigo/third-party-js-application-client':
-        specifier: ^0.4.8
+        specifier: ^0.4.9
         version: link:../third-party-js-application-client
       '@alistigo/third-party-js-types':
-        specifier: ^0.4.6
+        specifier: ^0.4.7
         version: link:../third-party-js-types
 
   packages/third-party-js-container-react:
     dependencies:
       '@alistigo/third-party-js-container':
-        specifier: ^0.6.8
+        specifier: ^0.6.9
         version: link:../third-party-js-container
       '@alistigo/third-party-js-types':
-        specifier: ^0.4.6
+        specifier: ^0.4.7
         version: link:../third-party-js-types
       react:
         specifier: ^18.3.1
