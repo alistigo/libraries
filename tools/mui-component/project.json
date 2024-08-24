@@ -1,0 +1,41 @@
+{
+  "name": "mui-component",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "tools/mui-component/src",
+  "projectType": "library",
+  "tags": [],
+  "targets": {
+    "build": {
+      "executor": "@nx/js:tsc",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/tools/mui-component",
+        "main": "tools/mui-component/src/index.ts",
+        "tsConfig": "tools/mui-component/tsconfig.lib.json",
+        "assets": [
+          "tools/mui-component/*.md",
+          {
+            "input": "./tools/mui-component/src",
+            "glob": "**/!(*.ts)",
+            "output": "./src"
+          },
+          {
+            "input": "./tools/mui-component/src",
+            "glob": "**/*.d.ts",
+            "output": "./src"
+          },
+          {
+            "input": "./tools/mui-component",
+            "glob": "generators.json",
+            "output": "."
+          },
+          {
+            "input": "./tools/mui-component",
+            "glob": "executors.json",
+            "output": "."
+          }
+        ]
+      }
+    }
+  }
+}

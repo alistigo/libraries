@@ -15,7 +15,11 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@alistigo/*": ["packages/*/src/index.ts"]
+      "@alistigo/*": ["packages/*/src/index.ts"],
+      "mui-component": ["tools/mui-component/src/index.ts"],
+      "react-mui-table-compare": [
+        "packages/react-mui-table-compare/src/index.ts"
+      ]
     },
     "esModuleInterop": true,
     "resolveJsonModule": true

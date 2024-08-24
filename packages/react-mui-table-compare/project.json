@@ -1,0 +1,9 @@
+{
+  "name": "react-mui-table-compare",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "packages/react-mui-table-compare/src",
+  "projectType": "library",
+  "tags": [],
+  "// targets": "to see all targets run: nx show project react-mui-table-compare --web",
+  "targets": {}
+}

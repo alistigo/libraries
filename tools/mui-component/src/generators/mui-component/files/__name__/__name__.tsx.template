@@ -1,0 +1,17 @@
+import type { BoxProps } from '@mui/material';
+import { Box } from '@mui/material';
+
+import { Styled<%= name %> } from './styles.ts.template';
+
+export interface <%= name %>Props extends BoxProps {}
+
+function <%= name %>({ children, ...props }: <%= name %>Props) {
+  return (
+    <Box {...props}>
+      <Styled<%= name %> />
+      {children}
+    </Box>
+  );
+}
+
+export default <%= name %>;

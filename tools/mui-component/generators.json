@@ -1,0 +1,9 @@
+{
+  "generators": {
+    "mui-component": {
+      "factory": "./src/generators/mui-component/generator",
+      "schema": "./src/generators/mui-component/schema.json",
+      "description": "mui-component generator"
+    }
+  }
+}

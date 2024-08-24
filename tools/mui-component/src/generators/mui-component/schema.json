@@ -1,0 +1,33 @@
+{
+  "$schema": "https://json-schema.org/schema",
+  "$id": "MuiComponent",
+  "title": "",
+  "type": "object",
+  "properties": {
+    "library": {
+      "type": "string",
+      "description": "The project where the component will be located.",
+      "x-prompt": "Which project will this component be located in?",
+      "x-dropdown": "projects"
+    },
+    "name": {
+      "type": "string",
+      "description": "Component name",
+      "$default": {
+        "$source": "argv",
+        "index": 0
+      },
+      "x-prompt": "What name would you like to use for your component?"
+    },
+    "module": {
+      "type": "string",
+      "description": "Module name",
+      "$default": {
+        "$source": "argv",
+        "index": 1
+      },
+      "x-prompt": "What module?"
+    }
+  },
+  "required": ["library", "name"]
+}
