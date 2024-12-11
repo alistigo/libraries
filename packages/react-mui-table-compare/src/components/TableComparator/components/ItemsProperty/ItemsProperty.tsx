@@ -4,8 +4,8 @@ import { TableCell, TableRow } from '@mui/material';
 import type {
   ItemCollection,
   Property as PropertyType,
-} from '../../types/data';
-import PropertyValue from '../PropertyValue';
+} from '../../../../types/data';
+import PropertyValue from '../../../PropertyValue';
 
 export interface ItemsPropertyProps
   extends Omit<TableRowProps, 'children' | 'property'> {

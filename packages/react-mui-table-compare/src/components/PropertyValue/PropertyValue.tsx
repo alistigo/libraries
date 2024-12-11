@@ -1,5 +1,5 @@
 import type { BoxProps } from '@mui/material';
-import { Box } from '@mui/material';
+import { Box, Typography } from '@mui/material';
 import { ItemProperty } from '../../types/data';
 
 export interface PropertyValueProps extends Omit<BoxProps, 'children'> {
@@ -11,22 +11,28 @@ function PropertyValue({ itemProperty, ...props }: PropertyValueProps) {
   switch (itemProperty.type) {
     case 'boolean': {
       if (itemProperty.value) {
-        content = <span>True</span>;
+        content = <Typography align="center">True</Typography>;
       } else {
-        content = <span>False</span>;
+        content = <Typography align="center">False</Typography>;
       }
       break;
     }
     case 'string':
-      content = <span>{itemProperty.value}</span>;
+      content = <Typography align="center">{itemProperty.value}</Typography>;
       break;
 
     case 'number':
-      content = <span>{itemProperty.value.toString()}</span>;
+      content = (
+        <Typography align="center">{itemProperty.value.toString()}</Typography>
+      );
       break;
 
     case 'stringList':
-      content = <span>{(itemProperty.value as string[]).join('; ')}</span>;
+      content = (
+        <Typography align="center">
+          {(itemProperty.value as string[]).join('; ')}
+        </Typography>
+      );
       break;
   }
 

@@ -5,7 +5,7 @@ import {
 } from '@mui/material';
 
 import { Root } from './styles';
-import { ItemCollection } from '../../types/data';
+import { ItemCollection } from '../../../../types/data';
 import ItemHead from '../ItemHead';
 
 export interface TableHeadProps extends Omit<TableHeadPropsMui, 'children'> {

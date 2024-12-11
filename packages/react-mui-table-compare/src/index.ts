@@ -1,2 +1,2 @@
-export * from './components/TableCompare/TableCompare';
+export * from './components/TableComparator/TableComparator';
 export * from './types/input';

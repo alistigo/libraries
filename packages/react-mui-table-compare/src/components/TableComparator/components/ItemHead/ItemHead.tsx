@@ -1,7 +1,7 @@
 import type { TableCellProps } from '@mui/material';
 import { TableCell } from '@mui/material';
 
-import { Item } from '../../types/data';
+import { Item } from '../../../../types/data';
 
 export interface ItemHeadProps extends Omit<TableCellProps, 'children'> {
   item: Item;

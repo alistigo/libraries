@@ -1,7 +1,7 @@
 import type { TableBodyProps } from '@mui/material';
 
 import { Root } from './styles';
-import { CompareData } from '../../types/data';
+import { CompareData } from '../../../../types/data';
 import ItemsProperty from '../ItemsProperty';
 
 export interface PropertyCollectionProps
